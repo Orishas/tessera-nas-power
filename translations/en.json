@@ -1,0 +1,26 @@
+{
+  "_meta": { "name": "English" },
+  "screen": {
+    "choose_device": "Choose a device",
+    "off": "Off",
+    "starting": "Starting",
+    "running": "Running",
+    "stopping": "Shutting down",
+    "shutdown_q": "Shut down now?",
+    "cancel": "Cancel",
+    "shutdown": "Shut down"
+  },
+  "app": {
+    "name": "NAS power",
+    "summary": "Start a NAS or a server from the screen and shut it down after a question. The tile shows off, starting, running or shutting down, and the power it draws.",
+    "tile_name": "NAS power",
+    "tile_example": "NAS, running, 42 W",
+    "card_name": "Shut down?",
+    "control": "Script or switch",
+    "control_hint": "What starts the device and shuts it down. A script is run for both, so it must do the right one itself; a switch is turned on and off.",
+    "power": "Power sensor",
+    "power_hint": "Optional. The power the device draws. It shows on the tile, and tells starting from off before the device answers.",
+    "idle": "Off below",
+    "idle_hint": "Under this power the device counts as off."
+  }
+}

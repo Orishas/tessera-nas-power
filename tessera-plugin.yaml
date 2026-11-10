@@ -1,0 +1,38 @@
+# NAS power: a tile for a device that takes a while to start and must be shut down with care, such as a NAS. It shows
+# off, starting, running or shutting down and the power the device draws; a tap starts it, and shuts it down after a
+# question. Every field is explained in docs/MANIFEST.md of tessera-plugins.
+id: nas_power
+version: 0.1.0
+api: "0.24"
+icon: database
+maintainer: Orishas
+license: MIT
+stage: beta
+topics: [home, tech]
+requires:
+  esphome: 2026.6.2
+boards: any
+flash_kb: 20
+
+permissions:
+  home_assistant_actions: [script.turn_on, switch.turn_on, switch.turn_off, input_boolean.turn_on,
+                           input_boolean.turn_off]
+
+cards:
+  - { id: confirm, name: card_name }
+
+tiles:
+  - id: power
+    name: tile_name
+    icon: database
+    sizes: { min: 1x1, max: 2x1 }
+    # An image and three labels, about 0.6 KB; members (texts, numbers) about 0.4 KB; the icon's mask at the tile's
+    # size, at most 10 mm a side, up to about 3.6 KB.
+    memory: 4800
+    domains: [binary_sensor, device_tracker, switch]
+    example: tile_example
+    preview: { title: "{name}", value: "{state}" }
+    options:
+      - { id: control, kind: entity, domains: [script, switch, input_boolean], label: control, hint: control_hint }
+      - { id: power, kind: entity, domains: [sensor], attributes: [unit_of_measurement], label: power, hint: power_hint }
+      - { id: idle, kind: number, min: 1, max: 50, step: 1, unit: W, default: 5, label: idle, hint: idle_hint }

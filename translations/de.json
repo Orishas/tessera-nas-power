@@ -1,0 +1,26 @@
+{
+  "_meta": { "name": "Deutsch" },
+  "screen": {
+    "choose_device": "Gerät wählen",
+    "off": "Aus",
+    "starting": "Startet",
+    "running": "Läuft",
+    "stopping": "Fährt herunter",
+    "shutdown_q": "Jetzt herunterfahren?",
+    "cancel": "Abbrechen",
+    "shutdown": "Herunterfahren"
+  },
+  "app": {
+    "name": "NAS-Schalter",
+    "summary": "Ein NAS oder einen Server vom Display aus starten und nach einer Rückfrage herunterfahren. Die Kachel zeigt aus, startet, läuft oder fährt herunter und die aktuelle Leistung.",
+    "tile_name": "NAS-Schalter",
+    "tile_example": "NAS, läuft, 42 W",
+    "card_name": "Herunterfahren?",
+    "control": "Skript oder Schalter",
+    "control_hint": "Was das Gerät startet und herunterfährt. Ein Skript wird für beides gestartet und muss selbst das Richtige tun; ein Schalter wird ein- und ausgeschaltet.",
+    "power": "Leistungssensor",
+    "power_hint": "Optional. Die Leistung, die das Gerät zieht. Sie steht auf der Kachel und unterscheidet Starten von Aus, bevor das Gerät antwortet.",
+    "idle": "Aus unter",
+    "idle_hint": "Unter dieser Leistung gilt das Gerät als aus."
+  }
+}

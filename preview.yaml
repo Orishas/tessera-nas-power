@@ -1,0 +1,49 @@
+# What tools/preview.py shows (docs/PREVIEW.md of tessera-plugins): the device in its four phases and the edges.
+tiles:
+  - tile: power
+    name: NAS
+    entity: binary_sensor.nas_on
+    options: { control: script.nas, power: sensor.nas_power_on }
+    sizes: [1x1, 2x1]
+  - tile: power
+    name: "Off"
+    entity: binary_sensor.nas_off
+    options: { control: script.nas, power: sensor.nas_power_off }
+    sizes: [1x1, 2x1]
+  - tile: power
+    name: Starting
+    entity: binary_sensor.nas_off
+    options: { control: script.nas, power: sensor.nas_power_on }
+    sizes: [1x1]
+  - tile: power
+    name: Shutting down
+    entity: binary_sensor.nas_on
+    options: { control: script.nas_running, power: sensor.nas_power_on }
+    sizes: [1x1]
+  - tile: power
+    name: Long name
+    entity: binary_sensor.nas_long
+    options: { control: switch.server, power: sensor.nas_power_high }
+    sizes: [1x1]
+  - tile: power
+    name: No power sensor
+    entity: binary_sensor.nas_on
+    options: { control: switch.server }
+    sizes: [1x1]
+  - tile: power
+    name: No entity
+    sizes: [1x1]
+
+cards:
+  - { card: confirm, entity: script.nas }
+
+states:
+  binary_sensor.nas_on: { state: "on", attributes: { friendly_name: NAS } }
+  binary_sensor.nas_off: { state: "off", attributes: { friendly_name: NAS } }
+  binary_sensor.nas_long: { state: "on", attributes: { friendly_name: Media server in the basement } }
+  script.nas: { state: "off", attributes: { friendly_name: NAS on or off } }
+  script.nas_running: { state: "on", attributes: { friendly_name: NAS on or off } }
+  switch.server: { state: "on", attributes: { friendly_name: Server } }
+  sensor.nas_power_on: { state: "42.4", attributes: { friendly_name: NAS power, unit_of_measurement: W } }
+  sensor.nas_power_off: { state: "0", attributes: { friendly_name: NAS power, unit_of_measurement: W } }
+  sensor.nas_power_high: { state: "1234.6", attributes: { friendly_name: NAS power, unit_of_measurement: W } }
