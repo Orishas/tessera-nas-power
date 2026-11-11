@@ -2,6 +2,7 @@
   "_meta": { "name": "English" },
   "screen": {
     "choose_device": "Choose a device",
+    "unavailable": "Unavailable",
     "off": "Off",
     "starting": "Starting",
     "running": "Running",
@@ -12,7 +13,7 @@
   },
   "app": {
     "name": "NAS power",
-    "summary": "Start a NAS or a server from the screen and shut it down after a question. The tile shows off, starting, running or shutting down, and the power it draws.",
+    "summary": "Start a NAS or a server from the screen and shut it down after a question, with its state and power on the tile.",
     "tile_name": "NAS power",
     "tile_example": "NAS, running, 42 W",
     "card_name": "Shut down?",

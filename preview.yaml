@@ -31,6 +31,16 @@ tiles:
     options: { control: switch.server }
     sizes: [1x1]
   - tile: power
+    name: Kilowatts
+    entity: binary_sensor.nas_on
+    options: { control: script.nas, power: sensor.nas_power_kw }
+    sizes: [1x1]
+  - tile: power
+    name: Unavailable
+    entity: binary_sensor.nas_gone
+    options: { control: script.nas, power: sensor.nas_power_on }
+    sizes: [1x1]
+  - tile: power
     name: No entity
     sizes: [1x1]
 
@@ -40,6 +50,7 @@ cards:
 states:
   binary_sensor.nas_on: { state: "on", attributes: { friendly_name: NAS } }
   binary_sensor.nas_off: { state: "off", attributes: { friendly_name: NAS } }
+  binary_sensor.nas_gone: { state: "unavailable", attributes: { friendly_name: NAS } }
   binary_sensor.nas_long: { state: "on", attributes: { friendly_name: Media server in the basement } }
   script.nas: { state: "off", attributes: { friendly_name: NAS on or off } }
   script.nas_running: { state: "on", attributes: { friendly_name: NAS on or off } }
@@ -47,3 +58,4 @@ states:
   sensor.nas_power_on: { state: "42.4", attributes: { friendly_name: NAS power, unit_of_measurement: W } }
   sensor.nas_power_off: { state: "0", attributes: { friendly_name: NAS power, unit_of_measurement: W } }
   sensor.nas_power_high: { state: "1234.6", attributes: { friendly_name: NAS power, unit_of_measurement: W } }
+  sensor.nas_power_kw: { state: "0.042", attributes: { friendly_name: NAS power, unit_of_measurement: kW } }

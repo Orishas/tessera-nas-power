@@ -10,6 +10,7 @@ power it draws.
 - **Starting:** it draws power but does not answer yet, or you just tapped the tile. The icon blinks.
 - **Running:** it answers. The icon is lit.
 - **Shutting down:** its script runs while the device is still there. The icon blinks.
+- **Unavailable:** Home Assistant has no state for the device. A tap does nothing until it has one.
 
 A tap starts the device when it is off. While it runs, a tap opens a card that asks first. While it starts or shuts
 down, a tap does nothing.
@@ -32,6 +33,11 @@ down, a tap does nothing.
 - With a script, "Shutting down" shows for as long as the script runs. A script that returns at once shows it only
   for that moment.
 - Without a power sensor the tile knows "Starting" only from a tap on itself, for at most five minutes.
+- While the script runs, a tap does nothing: a script may still wait to cut the power after the device went off.
+- The question closes by itself when the device stops answering while it stands.
+- The power shows in watts, whatever the sensor's unit (mW, W, kW or MW).
 - The tile is 1x1 or 2x1.
-- The NAS icon is the plugin's own, drawn by `tools/make_icon.py`; Tessera's icon set has none.
+- The NAS icon is the plugin's own, since Tessera's icon set has none: `tools/make_icon.py` draws the shape of "nas"
+  of [Material Design Icons](https://pictogrammers.com/library/mdi/icon/nas/) (Apache License 2.0), the icon Home
+  Assistant shows for `mdi:nas`.
 - It uses nothing outside the home: the screen talks to Home Assistant only.

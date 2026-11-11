@@ -2,6 +2,7 @@
   "_meta": { "name": "Deutsch" },
   "screen": {
     "choose_device": "Gerät wählen",
+    "unavailable": "Nicht verfügbar",
     "off": "Aus",
     "starting": "Startet",
     "running": "Läuft",
@@ -12,7 +13,7 @@
   },
   "app": {
     "name": "NAS-Schalter",
-    "summary": "Ein NAS oder einen Server vom Display aus starten und nach einer Rückfrage herunterfahren. Die Kachel zeigt aus, startet, läuft oder fährt herunter und die aktuelle Leistung.",
+    "summary": "Ein NAS oder einen Server vom Display starten und nach Rückfrage herunterfahren, mit Zustand und Leistung auf der Kachel.",
     "tile_name": "NAS-Schalter",
     "tile_example": "NAS, läuft, 42 W",
     "card_name": "Herunterfahren?",

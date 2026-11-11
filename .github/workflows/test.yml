@@ -1,0 +1,21 @@
+# The host tests of the model and the plugin check of tessera-plugins, on every push and pull request.
+name: test
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Model tests
+        run: sh tests/run.sh
+      - uses: actions/checkout@v4
+        with:
+          repository: MaxGramser/tessera-plugins
+          path: tessera-plugins
+      - name: Plugin check
+        run: |
+          pip install pyyaml
+          mkdir plugin && cp -r components translations tessera-plugin.yaml plugin.yaml README.md CHANGELOG.md LICENSE store.png preview.yaml plugin/
+          python3 tessera-plugins/tools/check.py plugin

@@ -1,6 +1,7 @@
 #pragma once
 #include "esphome/components/smart_display/plugin_api.h"
 #include "model.h"
+#include <string>
 
 namespace esphome::nas_power {
 
@@ -17,20 +18,18 @@ class PowerTile : public tessera::Tile {
   void on_tap() override;
 
  private:
-  Phase now() const;
+  int make_icon(lv_obj_t *parent);   // returns its width
+  std::string title() const;         // the name given in the editor, or the entity's
   void paint();
 
   const tessera::Plugin *plugin_;
   int width_ = 0, height_ = 0, tile_ = -1;
   int text_x_ = 0, top_ = 0;   // where the name starts: its left edge and its line
   tessera::Text entity_, control_, own_name_, name_;
-  char unit_[9]{};
-  bool has_power_ = false;   // a power sensor is chosen
-  bool has_watts_ = false;   // and it reads a number now
-  float watts_ = 0, idle_w_ = 5;
-  bool on_ = false, busy_ = false;
+  bool has_power_ = false;     // a power sensor is chosen
+  Device device_;
   Starting starting_;
-  Phase shown_ = Phase::OFF;
+  Phase shown_ = Phase::UNKNOWN;
   bool lit_ = true;
   lv_obj_t *icon_{}, *title_{}, *status_{}, *power_{};
   tessera::List<uint8_t> mask_;   // the icon at this tile's size
