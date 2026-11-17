@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 - 2026-11-17
+- The list for **Power** shows the power sensors first, with a key for every sensor.
+- Needs Tessera 0.4.98 or later (plugin API 0.26).
+
 ## 0.2.0 - 2026-11-11
 - A new icon: the NAS of Material Design Icons, the one Home Assistant shows for `mdi:nas`.
 - The question closes by itself when the device stops answering, so "Shut down" never starts a device that is off.
